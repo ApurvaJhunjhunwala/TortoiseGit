@@ -65,7 +65,7 @@ BEGIN_MESSAGE_MAP(CFindBar, CDialog)
 END_MESSAGE_MAP()
 
 void CFindBar::OnOK()
-{	
+{
 	// Do nothing if enter is pressed
 }
 

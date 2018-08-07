@@ -37,7 +37,7 @@ int APIENTRY _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPT
 			return 0;
 	} while (i-- > 0);
 
-	
+
 	TCHAR szPathWindows[MAX_PATH];
 	if (FAILED(SHGetFolderPath(nullptr, CSIDL_WINDOWS, nullptr, 0, szPathWindows)))
 		return 1;

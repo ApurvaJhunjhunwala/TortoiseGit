@@ -91,7 +91,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
 					while (sVal[0] == L' ')
 						sVal = _wcsinc(sVal);
 				}
-				
+
 				LPCTSTR nextArg = wcspbrk(sVal, m_sDelims);
 
 				sQuote = wcspbrk(sVal, m_sQuotes);

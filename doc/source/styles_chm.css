@@ -18,11 +18,11 @@ body {
 
 PRE
 {
-    font-size: 10pt;
+	font-size: 10pt;
 }
 TT
 {
-    font-size: 12pt;
+	font-size: 12pt;
 }
 
 TT.Filename, TT.Literal{
@@ -59,10 +59,10 @@ div.figure p {
 
 .author
 {
-    font-size: 12pt;
-    font-style: italic;
-    font-weight: normal;
-    color: black;
+	font-size: 12pt;
+	font-style: italic;
+	font-weight: normal;
+	color: black;
 }
 
 div.navheader, 
@@ -83,7 +83,7 @@ div.navheader table th {
 div.navfooter table td {
 	color: black;
 }
-    
+
 div.navheader table td a,
 div.navfooter table td a {
 	color: #black;
@@ -261,16 +261,16 @@ font-style: italic;
 }
 
 div.literallayout p {
-  padding: 0em;
-  margin: 0em;
+	padding: 0em;
+	margin: 0em;
 }
 
 div.literallayout {
-  font-family: monospace;
+	font-family: monospace;
 #  margin: 0.5em 10% 0.5em 1em;
-  margin: 0em;
-  color: navy;
-  border: 1px solid silver;
-  background: #f4f4f4;
-  padding: 0.5em;
+	margin: 0em;
+	color: navy;
+	border: 1px solid silver;
+	background: #f4f4f4;
+	padding: 0.5em;
 }

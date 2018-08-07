@@ -615,7 +615,7 @@ int CStatGraphDlg::GatherData(BOOL fetchdiff, BOOL keepFetchedData)
 			struct payload_struct { GitRev* rev; const char *authorName; BOOL useCommitterNames; };
 			payload_struct payload = { pLogEntry, nullptr, m_bUseCommitterNames };
 			const char* author1 = nullptr;
-			git_lookup_mailmap(mailmap, nullptr, &author1, email2A, &payload, 
+			git_lookup_mailmap(mailmap, nullptr, &author1, email2A, &payload,
 				[](void* payload) -> const char* { return reinterpret_cast<payload_struct*>(payload)->authorName = _strdup(CUnicodeUtils::GetUTF8(reinterpret_cast<payload_struct*>(payload)->useCommitterNames ? reinterpret_cast<payload_struct*>(payload)->rev->GetCommitterName() : reinterpret_cast<payload_struct*>(payload)->rev->GetAuthorName())); });
 			free((void *)payload.authorName);
 			if (author1)
@@ -668,7 +668,7 @@ int CStatGraphDlg::GatherData(BOOL fetchdiff, BOOL keepFetchedData)
 			progress.SetProgress64(i, m_ShowList.size());
 			starttime = GetTickCount64();
 		}
-		
+
 	}
 	git_free_mailmap(mailmap);
 

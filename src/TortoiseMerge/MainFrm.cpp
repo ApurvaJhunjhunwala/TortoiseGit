@@ -1602,7 +1602,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 				else
 					subpath = subpath.Right(subpath.GetLength() - projectRoot.GetLength());
 			}
-			
+
 			CAutoRepository repository(projectRoot);
 			bool hasConflictInIndex = false;
 			do

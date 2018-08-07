@@ -4241,7 +4241,7 @@ void CGitStatusListCtrl::DeleteSelectedFiles()
 	{
 		if (needWriteIndex && git_index_write(gitIndex))
 			MessageBox(g_Git.GetLibGit2LastErr(L"Could not write index."), L"TortoiseGit", MB_OK);
-		
+
 		if (needWriteIndex)
 		{
 			CWnd* pParent = GetLogicalParent();

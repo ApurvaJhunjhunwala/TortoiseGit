@@ -108,7 +108,7 @@ void CBugtraqRegexTestDlg::UpdateLogControl()
 void CBugtraqRegexTestDlg::OnSysColorChange()
 {
 	__super::OnSysColorChange();
-	
+
 	m_cLogMessage.SetColors(true);
 	m_cLogMessage.SetFont(CAppUtils::GetLogFontName(), CAppUtils::GetLogFontSize());
 }

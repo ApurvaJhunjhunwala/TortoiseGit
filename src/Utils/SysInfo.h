@@ -30,14 +30,14 @@
 class SysInfo
 {
 private:
-    SysInfo(void);
-    ~SysInfo(void);
-    // prevent cloning
-    SysInfo(const SysInfo&) = delete;
-    SysInfo& operator=(const SysInfo&) = delete;
+	SysInfo(void);
+	~SysInfo(void);
+	// prevent cloning
+	SysInfo(const SysInfo&) = delete;
+	SysInfo& operator=(const SysInfo&) = delete;
 public:
-    static const SysInfo& Instance();
+	static const SysInfo& Instance();
 
-	bool            IsWin8OrLater() const { return IsWindows8OrGreater(); }
-	bool            IsWin10() const { return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0); }
+	bool			IsWin8OrLater() const { return IsWindows8OrGreater(); }
+	bool			IsWin10() const { return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0); }
 };

@@ -558,7 +558,7 @@ int CPatch::PatchFile(const int strip, int nIndex, const CString& sPatchPath, co
 						else
 							break;
 					}
-					
+
 					if (insertOk)
 					{
 						PatchLines.InsertAt(lAddLine-1, sPatchLine, ending);

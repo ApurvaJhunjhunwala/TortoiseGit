@@ -1159,7 +1159,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 
 			for (int nGroup = 0; nGroup < GetMaxSeriesSize(); ++nGroup) {
 				if (pSeries->GetData(nGroup)) {
-					int nMaxDataValue(GetMaxDataValue()); 
+					int nMaxDataValue(GetMaxDataValue());
 					nMaxDataValue = max(nMaxDataValue, 1);
 					double barTop = m_ptOrigin.y - (double)m_nYAxisHeight *
 						pSeries->GetData(nGroup) / (double)nMaxDataValue - stackAccumulator;
@@ -1195,7 +1195,7 @@ void MyGraph::DrawSeriesBar(CDC& dc) const
 			++nSeries;
 		}
 	}
-	
+
 	if (!m_bStackedGraph) {
 		int nMaxDataValue = max(GetMaxDataValue(), 1);
 		double barTop = m_ptOrigin.y - (double)m_nYAxisHeight *

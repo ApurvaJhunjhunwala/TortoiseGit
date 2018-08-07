@@ -631,7 +631,7 @@ void CTortoiseProcApp::CheckUpgrade()
 
 	if (lVersion <= ConvertVersionToInt(2, 2, 1))
 	{
-		CString username = CRegString(L"Software\\TortoiseGit\\TortoiseProc\\SendMail\\Username", L""); 
+		CString username = CRegString(L"Software\\TortoiseGit\\TortoiseProc\\SendMail\\Username", L"");
 		CString password = CRegString(L"Software\\TortoiseGit\\TortoiseProc\\SendMail\\Password", L"");
 		if (!username.IsEmpty() && !password.IsEmpty())
 		{

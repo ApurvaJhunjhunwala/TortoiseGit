@@ -197,10 +197,10 @@ void CSetMainPage::OnBnClickedChecknewerbutton()
 void CSetMainPage::OnBrowseDir()
 {
 	UpdateData(TRUE);
-	
+
 	if (!SelectFolder(GetSafeHwnd(), m_sMsysGitPath, m_sMsysGitExtranPath))
 		return;
-	
+
 	UpdateData(FALSE);
 	SetModified(TRUE);
 }

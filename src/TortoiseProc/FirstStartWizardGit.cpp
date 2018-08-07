@@ -201,7 +201,7 @@ void CFirstStartWizardGit::OnCheck()
 	bool oldCygwinGit = CGit::ms_bCygwinGit;
 	bool oldMsys2Git = CGit::ms_bMsys2Git;
 	SCOPE_EXIT
-	{ 
+	{
 		CGit::ms_bCygwinGit = oldCygwinGit;
 		CGit::ms_bMsys2Git = oldMsys2Git;
 	};

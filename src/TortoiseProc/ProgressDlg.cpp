@@ -180,7 +180,7 @@ static void EnsurePostMessage(CWnd *pWnd, UINT Msg, WPARAM wParam, LPARAM lParam
 {
 redo:
 	if (!pWnd->PostMessage(Msg, wParam, lParam))
-	{	
+	{
 		if (GetLastError() == ERROR_NOT_ENOUGH_QUOTA)
 		{
 			Sleep(20);
@@ -691,7 +691,7 @@ void CProgressDlg::OnBnClickedButton1()
 	ShowWindow(SW_HIDE);
 	m_PostCmdList.at(m_ctrlPostCmd.GetCurrentEntry()).action();
 	EndDialog(IDOK);
-} 
+}
 
 void CProgressDlg::OnClose()
 {

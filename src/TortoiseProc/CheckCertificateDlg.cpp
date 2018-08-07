@@ -93,7 +93,7 @@ BOOL CCheckCertificateDlg::OnInitDialog()
 		if (hCryptProv)
 			CryptReleaseContext(hCryptProv, 0);
 	};
-	
+
 	m_sSHA1 = getCertificateHash(hCryptProv, CALG_SHA1, (BYTE*)cert->data, cert->len);
 	m_sSHA256 = getCertificateHash(hCryptProv, CALG_SHA_256, (BYTE*)cert->data, cert->len);
 	if (m_sSHA256.GetLength() > 57)
@@ -113,7 +113,7 @@ BOOL CCheckCertificateDlg::OnInitDialog()
 void CCheckCertificateDlg::OnBnClickedOpencert()
 {
 	CTGitPath tempFile = CTempFiles::Instance().GetTempFilePath(true, CTGitPath(L"certificate.der"));
-	
+
 	try
 	{
 		CFile file(tempFile.GetWinPathString(), CFile::modeReadWrite);

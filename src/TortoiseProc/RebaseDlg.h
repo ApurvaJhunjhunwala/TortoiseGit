@@ -126,7 +126,7 @@ protected:
 		CString email;
 		CTime time;
 		bool set = false;
-		
+
 		SquashFirstMetaData()
 			: set(false)
 		{

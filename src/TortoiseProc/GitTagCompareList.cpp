@@ -176,7 +176,7 @@ int CGitTagCompareList::Fill(const CString& remote, CString& err)
 			++remoteIt;
 			continue;
 		}
-		
+
 		if (remoteIt->name == localIt->name)
 		{
 			AddEntry(repo, remoteIt->name, &localIt->hash, &remoteIt->hash);

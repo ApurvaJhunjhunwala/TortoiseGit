@@ -1802,7 +1802,7 @@ void CTortoiseGitBlameView::OnMouseLeave()
 {
 	if (m_MouseLine == -1)
 		return;
-	
+
 	m_MouseLine = -1;
 	Invalidate();
 }

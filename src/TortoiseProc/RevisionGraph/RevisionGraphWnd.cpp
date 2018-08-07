@@ -1693,7 +1693,7 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
 		}
 	}
 	SetCapture();
-	
+
 	int pos_h = GetScrollPos(SB_HORZ);
 	pos_h -= point.x - m_ptMoveCanvas.x;
 	SetScrollPos(SB_HORZ, pos_h);

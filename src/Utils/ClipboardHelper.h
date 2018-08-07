@@ -39,7 +39,7 @@ inline CClipboardHelper::~CClipboardHelper()
 inline bool CClipboardHelper::Open(HWND hOwningWnd)
 {
 	bClipBoardOpen = (OpenClipboard(hOwningWnd) != 0);
-	    return bClipBoardOpen;
+	return bClipBoardOpen;
 }
 
 inline HGLOBAL CClipboardHelper::GlobalAlloc(SIZE_T dwBytes)

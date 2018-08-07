@@ -43,7 +43,7 @@ public:
 	}
 	operator TCHAR const * () const { return str.c_str(); }
 	operator std::wstring () const { return str; }
+
 private:
 	std::wstring str;
 };
-

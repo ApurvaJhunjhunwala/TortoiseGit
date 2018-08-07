@@ -140,7 +140,7 @@ void CSettingGitRemote::OnTimer(UINT_PTR nIDEvent)
 	{
 		if (m_strRemote.IsEmpty() && m_ctrlRemoteList.GetCount() == 0)
 			ShowEditBalloon(IDC_EDIT_URL, IDS_B_T_PREFILL_ORIGIN, IDS_HINT, TTI_INFO);
-	
+
 		KillTimer(TIMER_PREFILL);
 	}
 }

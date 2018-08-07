@@ -58,7 +58,7 @@ static int filter_check(
 
 	if (GIT_ATTR_TRUE(attr_values[0]))
 		return GIT_PASSTHROUGH;
-	
+
 	*payload = git__strdup(attr_values[0]);
 	if (!*payload)
 	{

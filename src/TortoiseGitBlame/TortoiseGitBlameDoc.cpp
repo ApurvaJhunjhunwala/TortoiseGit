@@ -190,7 +190,7 @@ BOOL CTortoiseGitBlameDoc::OnOpenDocument(LPCTSTR lpszPathName,CString Rev)
 				MessageBox(nullptr, CString(MAKEINTRESOURCE(IDS_BLAMEERROR)) + L"\n\nCould not create temp file!", L"TortoiseGitBlame", MB_OK | MB_ICONERROR);
 				return FALSE;
 			}
-			
+
 			CStringA lastline;
 			if (g_Git.Run(cmd, [&](const CStringA& line)
 			{

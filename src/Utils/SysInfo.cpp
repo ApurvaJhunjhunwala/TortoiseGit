@@ -29,9 +29,6 @@ SysInfo::~SysInfo(void)
 
 const SysInfo& SysInfo::Instance()
 {
-    static SysInfo instance;
-    return instance;
+	static SysInfo instance;
+	return instance;
 }
-
-
-

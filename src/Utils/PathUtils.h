@@ -138,7 +138,7 @@ public:
 
 	/**
 	 * ExpandFileName converts the relative file name into a fully qualified path name.
-	 * ExpandFileName does not verify that the resulting fully qualified path name 
+	 * ExpandFileName does not verify that the resulting fully qualified path name
 	 * refers to an existing file, or even that the resulting path exists.
 	 * \param path to expand
 	 * \return fully qualified path name

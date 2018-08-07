@@ -716,7 +716,7 @@ int CTGitPath::GetAdminDirMask() const
 					relativePath.Replace(L'\\', L'/');
 					relativePath.Trim(L'/');
 					CStringA submodulePath = CUnicodeUtils::GetUTF8(relativePath);
-					if (git_config_foreach_match(config, "submodule\\..*\\.path", 
+					if (git_config_foreach_match(config, "submodule\\..*\\.path",
 						[](const git_config_entry *entry, void *data) { return entry->value == *(CStringA *)data ? GIT_EUSER : 0; }, &submodulePath) == GIT_EUSER)
 						status |= ITEMIS_SUBMODULE;
 				}

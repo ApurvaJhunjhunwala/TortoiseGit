@@ -299,7 +299,7 @@ CSetExtMenu::CSetExtMenu()
 	: ISettingsPropPage(CSetExtMenu::IDD)
 {
 	ShellCache shell;
-	
+
 	m_bBlock = false;
 
 	m_regExtmenu = shell.menuextlow;
