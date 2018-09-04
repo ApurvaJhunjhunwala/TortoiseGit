@@ -50,6 +50,7 @@ extern void handle_warning(const char* warn, va_list params);
 extern int die_is_recursing_dll(void);
 
 extern void libgit_initialize(void);
+extern void cleanup_chdir_notify(void);
 extern void free_all_pack(void);
 extern void reset_git_env(void);
 extern void drop_all_attr_stacks(void);
@@ -60,12 +61,10 @@ extern void cmd_log_init(int argc, const char** argv, const char* prefix, struct
 extern int estimate_commit_count(struct rev_info* rev, struct commit_list* list);
 extern int log_tree_commit(struct rev_info*, struct commit*);
 extern int write_entry(struct cache_entry* ce, char* path, const struct checkout* state, int to_tempfile);
-extern struct object* deref_tag(struct object* o, const char* warn, int warnlen);
 extern void diff_flush_stat(struct diff_filepair* p, struct diff_options* o, struct diffstat_t* diffstat);
 extern void free_diffstat_info(struct diffstat_t* diffstat);
 static_assert(sizeof(unsigned long long) == sizeof(timestamp_t), "Required for each_reflog_ent_fn definition in gitdll.h");
 extern int for_each_reflog_ent(const char* refname, each_reflog_ent_fn fn, void* cb_data);
-extern int for_each_ref_in(const char* prefix, each_ref_fn fn, void* cb_data);
 
 void dll_entry(void)
 {
@@ -91,6 +90,7 @@ int git_init(void)
 	_setmode(_fileno(stdout), _O_BINARY);
 	_setmode(_fileno(stderr), _O_BINARY);
 
+	cleanup_chdir_notify();
 	reset_git_env();
 	// set HOME if not set already
 	gitsetenv("HOME", get_windows_home_directory(), 0);
@@ -219,7 +219,7 @@ int git_get_commit_from_hash(GIT_COMMIT* commit, const GIT_HASH hash)
 
 	hashcpy(oid.hash, hash);
 
-	commit->m_pGitCommit = p = lookup_commit(&oid);
+	commit->m_pGitCommit = p = lookup_commit(the_repository, &oid);
 
 	if(p == NULL)
 		return -1;
@@ -274,8 +274,8 @@ int git_free_commit(GIT_COMMIT *commit)
 	if( p->parents)
 		free_commit_list(p->parents);
 
-	if (p->tree)
-		free_tree_buffer(p->tree);
+	if (p->maybe_tree)
+		free_tree_buffer(p->maybe_tree);
 
 #pragma warning(push)
 #pragma warning(disable: 4090)
@@ -284,7 +284,7 @@ int git_free_commit(GIT_COMMIT *commit)
 
 	p->object.parsed = 0;
 	p->parents = 0;
-	p->tree = 0;
+	p->maybe_tree = NULL;
 
 	memset(commit,0,sizeof(GIT_COMMIT));
 	return 0;
@@ -370,9 +370,9 @@ int git_open_log(GIT_LOG* handle, const char* arg)
 				struct commit* commit = (struct commit*)ob;
 				free_commit_list(commit->parents);
 				commit->parents = NULL;
-				if (commit->tree)
-					free_tree_buffer(commit->tree);
-				commit->tree = NULL;
+				if (commit->maybe_tree)
+					free_tree_buffer(commit->maybe_tree);
+				commit->maybe_tree = NULL;
 				ob->parsed = 0;
 			}
 		}
@@ -709,7 +709,7 @@ int git_update_index(void)
 	int argc = 0;
 	int ret;
 
-	git_init();
+	//git_init();
 
 	argv = strtoargv("-q --refresh", &argc);
 	if (!argv)
@@ -767,7 +767,7 @@ int git_checkout_file(const char* ref, const char* path, char* outputpath)
 	if(ret)
 		return ret;
 
-	reprepare_packed_git();
+	reprepare_packed_git(the_repository);
 	root = parse_tree_indirect(&oid);
 
 	if(!root)
